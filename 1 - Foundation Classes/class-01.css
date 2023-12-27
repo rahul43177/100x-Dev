@@ -1,0 +1,9 @@
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.things {
+  padding-top: 39px;
+}
