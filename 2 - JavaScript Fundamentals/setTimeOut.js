@@ -1,4 +1,6 @@
-
+function greet() {
+    console.log("Hello world!")
+}
 // 1 minutes
 setTimeout(greet , 1 * 1000) 
 
@@ -8,7 +10,5 @@ function greetThePerson() {
 //2 minutes
 setTimeout(greetThePerson , 2 * 1000) 
 
-function greet() {
-    console.log("Hello world!")
-}
+//set interval function
 setInterval(greet ,  1*1000);
