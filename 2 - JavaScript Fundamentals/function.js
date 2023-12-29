@@ -1,12 +1,40 @@
-function sumTwoNumbers (num1 , num2) {
-    const sum = num1+num2;
-    return sum;
+// function sumTwoNumbers (num1 , num2) {
+//     const sum = num1+num2;
+//     return sum;
+// }
+
+
+// const sum1 = sumTwoNumbers(1,2)
+// const sum2 = sumTwoNumbers(2,3)
+// const sum3 = sumTwoNumbers(5,3)
+// const sum4 = sumTwoNumbers(5,2)
+
+// console.log(sum1,sum2,sum3,sum4)
+
+//function can take other function as input - call back function
+// function sum(num1 , num2 , functionToCall) {
+//     const sumOfTwoNumber = num1 + num2;
+//     functionToCall(sumOfTwoNumber);
+// }
+// function displayResult(result) {
+//     console.log('The sum is '+ result);
+// }
+// function displayPassive(result) {
+//     console.log("Sum's result is "+ result);
+// }
+
+// const ans = sum (1,2,displayResult);
+// const ans2 = sum (1,2,displayPassive);
+
+
+function calculateArithemetic(a,b, aritheticFinalFunction) {
+    const ans = aritheticFinalFunction(a,b);
+    return ans;
 }
 
+function sum(a,b) {
+    return a+b;
+}
 
-const sum1 = sumTwoNumbers(1,2)
-const sum2 = sumTwoNumbers(2,3)
-const sum3 = sumTwoNumbers(5,3)
-const sum4 = sumTwoNumbers(5,2)
-
-console.log(sum1,sum2,sum3,sum4)
+const value = calculateArithemetic(1,2,sum);
+console.log(value);
