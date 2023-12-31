@@ -3,7 +3,6 @@
 //     return sum;
 // }
 
-
 // const sum1 = sumTwoNumbers(1,2)
 // const sum2 = sumTwoNumbers(2,3)
 // const sum3 = sumTwoNumbers(5,3)
@@ -26,15 +25,14 @@
 // const ans = sum (1,2,displayResult);
 // const ans2 = sum (1,2,displayPassive);
 
-
-function calculateArithemetic(a,b, aritheticFinalFunction) {
-    const ans = aritheticFinalFunction(a,b);
-    return ans;
+function calculateArithemetic(a, b, aritheticFinalFunction) {
+  const ans = aritheticFinalFunction(a, b);
+  return ans;
 }
 
-function sum(a,b) {
-    return a+b;
+function sum(a, b) {
+  return a + b;
 }
 
-const value = calculateArithemetic(1,2,sum);
+const value = calculateArithemetic(1, 2, sum);
 console.log(value);
