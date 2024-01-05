@@ -83,26 +83,26 @@
 // array1.forEach((element)=> console.log(`Element is ${element}`))
 
 
-// class Animal {
-//     constructor(name , legCount) {
-//         this.name = name 
-//         this.legCount = name
-//     }
-//     describe() {
-//         return `${this.name} has ${this.legCount} legs  `
-//     }
-// }
+class Animal {
+    constructor(name , legCount) {
+        this.name = name 
+        this.legCount = name
+    }
+    describe() {
+        return `${this.name} has ${this.legCount} legs  `
+    }
+}
 
 
-// const dog = {
-//     name : "doggie" , 
-//     legCount : 2 , 
-//     speaks : "Bhow bhow"
-// }
+const dog = {
+    name : "doggie" , 
+    legCount : 2 , 
+    speaks : "Bhow bhow"
+}
 
 // animal x bhow bhow with 2 legs 
 
-// console.log(`animal ${dog.name} with leg count ${dog["legCount"]} speaks ${dog["speaks"]}`)
+console.log(`animal ${dog.name} with leg count ${dog["legCount"]} speaks ${dog["speaks"]}`)
 
 // const cat = {
 //     name : "Meow" , 
