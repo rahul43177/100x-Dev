@@ -27,4 +27,4 @@ function callbacks() {
 
 d.then(callbacks)
 
-
+ 
