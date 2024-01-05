@@ -25,14 +25,28 @@
 // const ans = sum (1,2,displayResult);
 // const ans2 = sum (1,2,displayPassive);
 
-function calculateArithemetic(a, b, aritheticFinalFunction) {
-  const ans = aritheticFinalFunction(a, b);
-  return ans;
+// function calculateArithemetic(a, b, aritheticFinalFunction) {
+//   const ans = aritheticFinalFunction(a, b);
+//   return ans;
+// }
+
+// function sum(a, b) {
+//   return a + b;
+// }
+
+// const value = calculateArithemetic(1, 2, sum);
+// console.log(value);
+
+function findSum(n) {
+  let sum = 0;
+  for(let i = 0;i<n;i++) {
+    
+    sum += i;
+  }
+  return sum;
 }
 
-function sum(a, b) {
-  return a + b;
-}
+let ans = findSum(100)
+let ans2 = findSum(200)
 
-const value = calculateArithemetic(1, 2, sum);
-console.log(value);
+console.log(ans , ans2)
