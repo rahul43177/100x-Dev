@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" placeholder="Please enter the first number" id = "firstNumber">
-    <input type="text" placeholder="Please enter the second number" id = "secondNumber">
+    <input oninput="debouncePopulateDin()" type="text" placeholder="Please enter the first number" id = "firstNumber">
+    <input oninput="debouncePopulateDin()"  type="text" placeholder="Please enter the second number" id = "secondNumber">
 
     <button id="btn" onclick="findSum()">calculate sum</button>
     <div id="result"></div>

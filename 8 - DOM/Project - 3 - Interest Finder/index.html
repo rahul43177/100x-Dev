@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Finder</title>
+    
+</head>
+<body>
+    <input  oninput="calculateInterest()" type="text" id = "principal" placeholder="Enter your principal">
+    <input oninput="calculateInterest()" type="text" id = "rate" placeholder="Enter your Rate">
+    <input oninput="calculateInterest()" type="text" id = "time" placeholder="Enter your Time in years">
+
+    <button id="btn" onclick="calculateInterest()" >Calculate</button>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
