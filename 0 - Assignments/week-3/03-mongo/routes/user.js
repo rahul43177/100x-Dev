@@ -81,4 +81,17 @@ router.get("/purchasedCourses", userMiddleware, async (req, res) => {
   });
 });
 
+
+router.get("/getAllUserData" , async (req,res)=> {
+  let findAllUsers = await User.find({});
+  return res.status(200).json({
+    status : true , 
+    message : "All user data" ,
+    userData : findAllUsers
+   
+  })
+})
+
+
+
 module.exports = router;
