@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Similar to React</title>
+
+</head>
+<body>
+    <div id="buttonPanel"></div>
+
+    <script>
+        let state = {
+            count : 0
+        }
+        function onButtonPress() {
+            state.count ++;
+            buttonComponentRender();
+        }
+
+        function buttonComponentRender() {
+            document.getElementById('buttonPanel').innerHTML = ''
+            const component = buttonComponent(state.count)
+            document.getElementById('buttonPanel').appendChild(component)
+        }
+
+        function buttonComponent(count) {
+            const button = document.createElement('button')
+            button.innerHTML = `COunter ${counter}`
+            button.setAttribute('onclick' , 'onButtonPress()')
+        }
+
+        buttonComponentRender();
+    </script>
+</body>
+</html>
