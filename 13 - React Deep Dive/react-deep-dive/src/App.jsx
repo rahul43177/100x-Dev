@@ -22,9 +22,9 @@ function App() {
   
   function addTodos() {
     setTodos([...todos , {
-      id : 4 , 
-      title : Math.random() , 
-      description : Math.random()
+      id : ++counter ,  
+      title : `title -> ${Math.floor(Math.random()*100)}` , 
+      description : `Description -> ${Math.floor(Math.random()*100)}`
     }])
   }
 
@@ -33,7 +33,8 @@ function App() {
     <div>
       <button onClick={addTodos} >Add a todo</button> 
     {todos.map((todo)=> {
-      return <Todo title = {todo.title} description={todo.description} />
+      console.log(todo.id)
+      return <Todo key={todo.id} title = {todo.title} description={todo.description} />
     })}
     </div>
   )
