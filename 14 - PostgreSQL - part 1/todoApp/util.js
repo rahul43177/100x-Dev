@@ -1,10 +1,19 @@
 const {Client} = require('pg')
 
-async function getClient() {
-    const client = new Client('postgres://gsbvtcph:tCVDyevMULCeF6fQFZWOZfpiB9ob1URz@lucky.db.elephantsql.com/gsbvtcph')
-    await client.connect()
-    return client 
-}
+const client = new Client({
+  user : "postgres" ,
+  password : "123456789" , 
+  databse : "todos" ,
+  host : "localhost" ,
+  port: 5432
+})
 
 
-module.exports = {getClient}
+client.connect() 
+.then(()=> {
+    console.log('PostgreSQL is connected')
+  })
+.catch((error)=> console.log('error' , error.message))
+
+module.exports
+

@@ -22,9 +22,9 @@ function App() {
   
   function addTodos() {
     setTodos([...todos , {
-      id : ++counter ,  
-      title : `title -> ${Math.floor(Math.random()*100)}` , 
-      description : `Description -> ${Math.floor(Math.random()*100)}`
+      id : 4 , 
+      title : "random text" ,
+      description : Math.floor(Math.random()* 100)
     }])
   }
 
