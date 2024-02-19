@@ -5,9 +5,17 @@
 - HTML CSS
 - JavaScript basics - loops , variable declaration
 - JavaScript advance - promises , callback , async/await
-- NodeJs - backend HTTP
+- NodeJs - backend , HTTP , routing 
 - MongoDB
-- PostgreSQL and using Primsa ORM
+     - CRUD operations
+     - Compass
+     - ATLAST
+     - Connection
+     - Mongoose
+- PostgreSQL using Primsa ORM
+     - Connection
+     - CRUD
+     - ORM
 - React
    - How React works beheind the scenes
    - React Life cycle
