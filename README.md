@@ -5,7 +5,11 @@
 - HTML CSS
 - JavaScript basics - loops , variable declaration
 - JavaScript advance - promises , callback , async/await
-- NodeJs - backend , HTTP , routing 
+- NodeJs - backend , HTTP , routing
+- Express
+     - Middlewares
+     - Routing
+     - Error handling - try/catch
 - MongoDB
      - CRUD operations
      - Compass
