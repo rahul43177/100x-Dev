@@ -2,6 +2,15 @@
 ### Learning How to Contribute to OpenSource in real world projects 
 ### Learning Advanced Frontend and Advanced Backend 
 
-- I am storing all the code which I am doing throughout the cohort here and this is a place where I can revise the concepts and look at the code at once and one place.
-- Learning PostgreSQL and use Primsa ORM
+- HTML CSS
+- JavaScript basics - loops , variable declaration
+- JavaScript advance - promises , callback , async/await
+- NodeJs - backend HTTP
+- MongoDB
+- PostgreSQL and using Primsa ORM
+- React
+   - How React works beheind the scenes
+   - React Life cycle
+   - React Hooks -> useState , useEffect , useMemo , useCallback
+   - Created a simple Todo application
 
