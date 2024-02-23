@@ -1,29 +1,34 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 function App() {
-  const [counter, setCounter] = useState(0);
-  const [intputValue, setInputValue] = useState(1);
+  const [selectedButton , setSelectedButton] = useState(0)
+  return (
+    <>
+      <button onClick={() => setSelectedButton(1)} >1</button>
+      <button onClick={() => setSelectedButton(2)} >2</button>
+      <button onClick={() => setSelectedButton(3)} >3</button>
+      <button onClick={() => setSelectedButton(4)} >4</button>
+    </>
+  );
+}
 
-  let sum = 0;
-  for (let i = 1; i <= intputValue; i++) {
-    sum += i;
-  }
+function Todo({ id }) {
+  const [todo, setTodo] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`https://sum-server.100xdevs.com/todo?id=${id}`)
+      .then((response) => {
+        console.log("response", response);
+        console.log(` data.data ${response.data.todo}`);
+        console.log("response.data.todo", response.data.todo);
+        setTodo(response.data.todo);
+      });
+  }, []);
 
   return (
     <div>
-      <input
-        onChange={(e) => setInputValue(e.target.value)}
-        type="text"
-        placeholder="Enter a number to find sum till n"
-      />
-      <br /> <br />
-      The sum from 1 to {intputValue} is {sum}
-      <br />
-      <br />
-      <button onClick={() => setCounter(counter + 1)}>
-        Press to increase the counter
-      </button>
-      {counter}
+      <h1>{todo.title}</h1>
+      <h4>{todo.description}</h4>
     </div>
   );
 }

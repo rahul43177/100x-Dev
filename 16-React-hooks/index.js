@@ -1,15 +1,36 @@
-//add function 
+const data = {
+  code: 42,
+  items: [
+    {
+      id: 1,
+      name: 'foo'
+    },
+    {
+      id: 2,
+      name: 'bar'
+    }
+  ]
+};
 
-function add (num1 , num2) {
-  return num1 + num2 
-}
+const flatObject = (object) => {
+  const flatArray = [];
+
+  const flatten = (obj) => {
+    for (let key in obj) {
+      if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+        flatten(obj[key]);
+      } else if (Array.isArray(obj[key])) {
+        obj[key].forEach(item => flatten(item));
+      } else {
+        flatArray.push(obj[key]);
+      }
+    }
+  };
+
+  flatten(object);
+  return flatArray;
+};
 
 
-const number1 = 12 
-const number2 = 23 
-
-const sum = add(number1, number2)
-console.log("The sum is")
-console.log(sum)
-
+console.log(flatObject(data)); // Output: [42, 1, 'foo', 2, 'bar']
 
