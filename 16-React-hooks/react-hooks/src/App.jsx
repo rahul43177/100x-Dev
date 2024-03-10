@@ -1,14 +1,13 @@
-import {useState , useEffect} from 'react'
+import { useState, useEffect } from "react";
 
 //this is custom hook called - useTodos
 function useTodos() {
-  const [todos , setTodos] = useState([])
-  useEffect(()=> {
-    axios.get("")
-    .then((res)=> {
-      setTodos(res.data.todos)
-    })
-  },[])
+  const [todos, setTodos] = useState([]);
+  useEffect(() => {
+    axios.get("").then((res) => {
+      setTodos(res.data.todos);
+    });
+  }, []);
   return todos;
 }
 
