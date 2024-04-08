@@ -28,7 +28,7 @@ function App() {
 
 
 
-  const cryptoReturns = exchangeData.returns  + exchangeData2.returns
+  const cryptoReturns = exchangeData.returns  + exchangeData2.returnsr
 }
 
 
