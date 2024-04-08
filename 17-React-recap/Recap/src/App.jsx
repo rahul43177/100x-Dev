@@ -1,35 +1,46 @@
-//fixing using the useMemo
-import { useState, useEffect , useMemo} from "react";
+import {useEffect , useState} from 'react'
 
 function App() {
-  const [exchange1Data, setExchange1Data] = useState({});
-  const [exchange2Data, setExchange2Data] = useState({});
-  const [bankData, setBankData] = useState({});
-
-  useEffect(() => {  //these in real world will be a network call
-    setExchange1Data({
-      returns: 100,
-    });
-  }, []);
+  const [exchangeData , setExchangeData] = useState({})
+  const [exchangeData2 , setExchangeData2] = useState({})
+  const [bankData , setBankData] = useState({})
 
   useEffect(() => {
-    setExchange2Data({
-      returns: 100,
-    });
-  }, []);
+    setExchangeData({
+      returns : 100
+    })
+  },[])
 
-  useEffect(() => {
-    setBankData({
-      returns: 100,
-    });
-  }, []);
-  const cryptoReturns = useMemo(()=> {
-    exchange1Data.returns + exchange2Data.returns;
-  },[exchange1Data , exchange2Data])
+  useEffect(()=> {
+    setExchangeData2({
+      returns : 100
+    })
+  },[])
 
-  const incomeTax = (cryptoReturns + bankData.returns) * 0.3;
+  useEffect(()=> {
+    //some operations to get the data
+    setTimeout(()=> {
+      setBankData({
+        income : 100
+      })
+    })
+  },[])
 
-  return <div>Hi there , your income tax return are {incomeTax}</div>;
+
+
+  const cryptoReturns = exchangeData.returns  + exchangeData2.returns
+
+  const incomeTax = (cryptoReturns + )
+
+
+
 }
 
-export default App;
+
+
+
+
+
+
+
+export default App
