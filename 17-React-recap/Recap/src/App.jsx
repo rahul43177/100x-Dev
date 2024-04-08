@@ -29,11 +29,6 @@ function App() {
 
 
   const cryptoReturns = exchangeData.returns  + exchangeData2.returns
-
-  const incomeTax = (cryptoReturns + )
-
-
-
 }
 
 
