@@ -1,30 +1,40 @@
-import {Suspense,lazy} from 'react'
-import { BrowserRouter , Routes , Route} from 'react-router-dom'
-
-const Dashboard = lazy(()=> import('./components/Dashboard'))
-const Landing = lazy(()=> import('./components/Landing'))
-
-
+import {useContext, useState} from 'react'
+import { CountContext } from './context'
 function App() {
+  const [count , setCount] = useState(0)
+  //wrap anyone that wants to use the teleported values inside a provider
   return (
     <div>
-      <div>
-        <button onClick={()=> {
-          window.location.href = "/dashboard"
-        }}>Dashboard</button>
+      <CountContext.Provider value = {count}> 
+        <Count count = {count} setCount = {setCount} />
+      </CountContext.Provider>
 
-        <button onClick={()=> {
-          window.location.href = "/"
-        }}>Landing Page</button>
-      </div>
-      <BrowserRouter>
-        <Routes>
-          <Route path = "/dashboard"  element = { <Suspense fallback = {"...Loading"} >  <Dashboard/> </Suspense>}/>
-          <Route path = "/" element ={  <Suspense  fallback = "..loading"> <Landing/> </Suspense>} />
-        </Routes>
-      </BrowserRouter>
     </div>
   )
+}
+
+function Count({count , setCount}) {
+  return <div>
+    <CountRenderer count = {count}/>
+    <Buttons setCount = {setCount} />
+  </div>
+}
+function CountRenderer() {
+  const count = useContext(CountContext);
+  return <div>
+    {count}
+  </div>
+}
+//reducer or useReducer
+
+function Buttons({setCount}) {
+  const count = useContext(CountContext);
+  return <div>
+    <button onClick={()=> {
+      setCount(count + 1)
+    }}>Increase</button>
+    <button onClick={()=> setCount(count- 1)} >Reduce</button>
+  </div>
 }
 
 
