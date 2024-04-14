@@ -48,13 +48,13 @@ function Buttons(){
      <button onClick = {()=> {
       setCount(count - 1)
     }}>
-      Decrease
+      Decrease (-)
     </button> 
-    
+
     <button onClick= {()=> {
       setCount(count+1)
     }}>
-      Increate
+      Increate (+)
     </button>
    
   </div>
