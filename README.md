@@ -25,4 +25,7 @@
    - React Life cycle
    - React Hooks -> useState , useEffect , useMemo , useCallback
    - Created a simple Todo application
+   - Routing using react-router-dom
+   - Prop Drilling in React
+   - Context API - Passing the props and teleport it anywhere we want
 
