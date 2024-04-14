@@ -3,10 +3,18 @@ import {countAtom } from './store/atoms/count'
 import {RecoilRoot , useRecoilState , useRecoilValue} from 'recoil'
 
 
+/**
+ * @function App
+ * @description The root component of the Recoil app.
+ * RecoilRoot is the top level component for any Recoil application.
+ * All Recoil state is contained underneath a RecoilRoot.
+ * RecoilRoot takes care of setting up the context for useRecoilState and
+ * useRecoilValue hooks.
+ */
 function App() {
   return (
     <div>
-      <RecoilRoot>
+      <RecoilRoot /* The root component for any Recoil application. */>
         <Count />
       </RecoilRoot>
     </div>
@@ -27,8 +35,21 @@ function CountRenderer() {
     <b>
       {count}
     </b>
+    <EvenCountRenderer />
   </div>
 }
+
+function EvenCountRenderer() {
+  const count = useRecoilValue(countAtom)
+  const isEven = count %  2 === 0; //check if count is even or odd by using modulo operator (%)
+  return <div>
+    {/* if count is even then display "Even" otherwise display "Odd" */}
+    {isEven ? "Even " : "Odd"}
+  </div>
+}
+
+
+
 
 function Buttons(){
   //useRecoilState hook is used to get the current value of a Recoil state and also to update it
