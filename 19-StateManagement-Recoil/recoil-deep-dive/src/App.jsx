@@ -1,6 +1,7 @@
-import { networkAtom , jobsAtom , notificationAtom , messagingAtom ,homeAtom} from './atoms'
+import { notifications , totalNotificationSelector } from './atoms'
 import {useRecoilValue , RecoilRoot , useRecoilState} from 'recoil'
-
+import axios from 'axios'
+import {useEffect } from 'react'
 
 function App() {
     return (
@@ -12,23 +13,33 @@ function App() {
 }
 
 
+// default : {
+//   network : 4 , 
+//   jobs : 6 , 
+//   messaging : 3 , 
+//   notifications : 3
+// }
 function MainApp() {
-    const networkNotificationCount = useRecoilValue(networkAtom)
-    const jobsNotificationCount = useRecoilValue(jobsAtom)
-    const notificationCount = useRecoilValue(notificationAtom)
-    const [messagingCount , setMessaginAtomCount] = useRecoilState(messagingAtom)
-    const homeCount = useRecoilValue(homeAtom)
+    
+    const totalNotificationCount = useRecoilValue(totalNotificationSelector)
+  
+    useEffect(async ()=> {
+      const res = await axios.get("https://sum-server.100xdevs.com/notification")
+      .then(res => {
+        set
+      })
+    }) 
+
+
     return (
         <>
-            <button>Home ({homeCount >=  100 ? "99+" : homeCount}) </button>
-            <button>My network ({networkNotificationCount >= 100  ?  "99+" : networkNotificationCount})</button>
-            <button>Jobs ({jobsNotificationCount})</button>
-            <button>Messaging ({messagingCount})</button>
-            <button>Notification ({notificationCount >= 100 ? "99+"  : notificationCount})</button>
+            <button>Home</button>
+            <button>My network ({notifications.network >= 100  ?  "99+" : notifications.network})</button>
+            <button>Jobs ({notifications.jobs})</button>
+            <button>Messaging ({notification.messaging})</button>
+            <button>Notification ({notification.notifications >= 100 ? "99+"  : notification.notifications})</button>
 
-            <button onClick={()=> {
-                setMessaginAtomCount(messagingCount + 1)
-            }} >Me</button>
+            <button>Me ({totalNotificationCount})</button>
         
         </>
     )
