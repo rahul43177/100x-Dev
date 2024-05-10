@@ -29,6 +29,7 @@
    - Prop Drilling in React
    - Context API - Passing the props and teleport it anywhere we want
    - State Management using **Recoil**
+   - Tailwind in react
 
 
 
