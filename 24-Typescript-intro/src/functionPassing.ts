@@ -1,12 +1,9 @@
-function sum(a : number , b : number) {
-    return a+b;
+function sumFunction() {
+    console.log("Running after 2 seconds");
 }
 
-
-function runAfter5Seconds(fn : ()=> void) {
-    setTimeout(fn , 5*1000);
+function mainFunction(fn : () => void) {
+    setTimeout(fn , 2000);
 }
 
-runAfter5Seconds(()=> {
-    console.log("Hello world");
-})
+mainFunction(sumFunction);
