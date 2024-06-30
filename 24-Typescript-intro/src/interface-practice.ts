@@ -12,7 +12,6 @@ class Employee implements Person {
         this.name = n 
         this.age = a 
     }
-
     greet(phrase : string) : void {
         console.log(phrase + ' ' + this.name)
     }
