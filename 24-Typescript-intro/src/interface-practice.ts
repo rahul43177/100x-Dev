@@ -1,22 +1,25 @@
 interface Person {
-    name : string;
-    age : number;
-    greet() : void
-} 
+    name : string 
+    age : number 
+    greet(phrase : string) : void 
+}
 
 class Employee implements Person {
-    name : string ;
-    age : number ;
+    name : string 
+    age : number 
 
-    constructor(name : string , age : number) {
-        this.name = name;
-        this.age = age;
+    constructor(n : string , a : number) {
+        this.name = n 
+        this.age = a 
     }
 
-    greet():void {
-        console.log(`Hello , My name is ${this.name} and I am ${this.age}`)
+    greet(phrase : string) : void {
+        console.log(phrase + ' ' + this.name)
     }
 }
 
-let user1 = new Employee("Rahul Mishra" , 23)
-user1.greet()
+
+let user2 = new Employee("Rahul Mishra" , 23)
+let user1 = new Employee("Anshul Kumar" , 24)
+user2.greet("Hi there - I am")
+user1.greet("Hi there - I am")
