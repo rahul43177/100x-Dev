@@ -30,7 +30,13 @@
    - Context API - Passing the props and teleport it anywhere we want
    - State Management using **Recoil**
    - Tailwind in react using Vite
+   - Built a frontend project - PayTM clone (very basic)
+   - Custom Hooks in react 
 
+- TypeScript 
+     - Introduction to typescript
+     - Interface in typescript 
+     - Types in TS
 
 
 

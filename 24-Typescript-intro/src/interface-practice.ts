@@ -1,24 +1,25 @@
-interface Person {
-    name : string 
+interface Person { 
+    name : string , 
     age : number 
-    greet(phrase : string) : void 
+    greeting(phrase : string) : void 
 }
 
-class Employee implements Person {
-    name : string 
-    age : number 
+class Employee implements Person { 
+    name : string;
+    age : number;
 
-    constructor(n : string , a : number) {
-        this.name = n 
-        this.age = a 
+    constructor (n : string , a: number) {
+        this.name = n;
+        this.age = a;
     }
-    greet(phrase : string) : void {
-        console.log(phrase + ' ' + this.name)
+
+    greeting (phrase : string ) : void { 
+        console.log(phrase , this.name)
     }
 }
 
+const newperson1 =  new Employee("Rahul Mishra" , 23)
+const newPerson2 = new Employee("Anshul Kumar" , 23)
 
-let user2 = new Employee("Rahul Mishra" , 23)
-let user1 = new Employee("Anshul Kumar" , 24)
-user2.greet("Hi there - I am")
-user1.greet("Hi there - I am")
+newperson1.greeting("Hello sir")
+newPerson2.greeting("Hi there")
