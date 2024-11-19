@@ -1,7 +1,7 @@
 import { RevenueCard } from "./components/RevenueCard";
 
 
-export default function App() {
+function App() {
 
   return (
     <div className="grid grid-cols-3">
@@ -9,3 +9,5 @@ export default function App() {
     </div>
   )
 }
+
+export default App;
