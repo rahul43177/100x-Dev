@@ -1,7 +1,10 @@
-const { Router } = require("express")
-const router = Router();
+const express = require("express")
+const router = express.Router()
+const {getAllTodos , createTodo , updateTodo} = require("./controller")
 
-
+router.get("/getTodo" , getAllTodos)
+router.post("/createTodo" , createTodo )
+router.put("/completed" , updateTodo)
 
 
 module.exports = router;
