@@ -15,7 +15,7 @@ function App() {
   const [todos , setTodos] = useState([
   {
     title : 'Go to gym' , 
-    description : 'Go to gym from 7-9' , 
+    descrissption : 'Go to gym from 7-9' , 
     completed : false 
   } ,
   {
