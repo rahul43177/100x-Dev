@@ -1,14 +1,35 @@
+// export const Todos = ({ todos }) => {
+//     return (
+//         <>
+//             {todos.map(({ id, title, description, isCompleted }) => {
+//                 return (
+//                     <div key={id}>
+//                         <h2>{title}</h2>
+//                         <h3>{description}</h3>
+//                         <button>{isCompleted ? "Mark as not completed" : "Mark as completed!"}</button>
+//                     </div>
+//                 );
+//             })}
+//         </>
+//     );
+// }
+
 export const Todos = ({todos}) => {
     return (
-        <>
-            {todos.map((todo) => {
+        <>  
+            {todos.map(({id , title, description , isCompleted}) => {
                 return (
-                <div>
-                    
-                    <h1>{todo.title}</h1>
-                    <h3>{todo.description}</h3>
-                    <button>{todo.isCompleted == true ? "Compeleted" : "Not Completed"}</button>
-                </div>
+                    <div key = {id}>
+                        <h1>
+                            {title}
+                        </h1>
+                        <h3>
+                            {description}
+                        </h3>
+                        <button>
+                            {isCompleted ? "Mark as not completed" : "Mark as completed!"}
+                        </button>
+                    </div>
                 )
             })}
         </>
