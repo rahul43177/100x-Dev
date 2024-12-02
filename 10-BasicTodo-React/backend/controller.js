@@ -3,7 +3,7 @@
 // completeTodos
 
 const { todoModel } = require("./db")
-const { updateTodoValidation } = require("./types")
+const { updateTodoValidation , createTodoValidation } = require("./types")
 
 
 const getAllTodos = async (req,res) => {
