@@ -1,4 +1,4 @@
-export function CreateTodo() {
+export function CreateTodo(props) {
     return (
         <div>
             <input 

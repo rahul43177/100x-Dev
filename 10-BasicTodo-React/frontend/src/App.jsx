@@ -7,22 +7,21 @@ export default function App() {
   const [todos , setTodos ] = useState([])
 
   const fetchAllTheTodos = async () => {
-    const allTodosData = axios.get("http://localhost:3000/getTodo") 
-    .then((response) => {
-      if(response.data.status) {
-        setTodos(response.data.data)
-      }
-    })
-
+    const allTodoResponse = await axios.get("http://localhost:3000/getTodo")
+    const allTodoData = allTodoResponse.data
+    if(allTodoData.status) {
+      setTodos(allTodoData.data)
+    }
   }
+  
   useEffect(() => {
-    fetchAllTheTodos()
+     fetchAllTheTodos()
   } , [])
   // const todosData = axios.get("http://localhost:3000/getTodo")
-  // //console.log("The todoData API" , todosData)
+  // ////console.log("The todoData API" , todosData)
   // const [todos , setTodos ] = useState([])
   // const todoDeatils = ;
-  //console.log("Todos in useState" , todos)
+  ////console.log("Todos in useState" , todos)
   return (
     <div>
       Hi There! This is coming from App.jsx
@@ -31,3 +30,4 @@ export default function App() {
     </div>
   );
 }
+

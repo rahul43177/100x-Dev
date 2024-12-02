@@ -18,22 +18,21 @@ const getAllTodos = async (req,res) => {
 
 const createTodo = async (req,res) => {
     const payload = req.body
+    console.log("The payload is" , payload)
     const parsedPayload = createTodoValidation.safeParse(payload)
-
+    console.log("The parsedpayload data is" , parsedPayload.data)
     if(!parsedPayload.success) {
         return res.status(411).json({
             status : false ,
             message : "you sent the wrong input!!"
         })
     }
-
-     const {title , description} = parsedPayload.data
-
-     const createTodoDatabase = await todoModel.create({
-        title , 
-        description 
-     })
     
+     const todoData = parsedPayload.data
+
+     const createTodoDatabase = await todoModel.create(parsedPayload.data)
+    
+     
      return res.status(201).json({
         status : true , 
         message : "Todo have been created!!" , 
