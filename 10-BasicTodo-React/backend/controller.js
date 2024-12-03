@@ -41,7 +41,11 @@ const createTodo = async (req,res) => {
 }
 
 const updateTodo = async (req,res)=> {
-    const payload = req.body
+    const payload = req.params
+    const {title , description} = req.body
+
+    console.log("The payload is " , payload)
+
     const parsedPayload = updateTodoValidation.safeParse(payload)
 
     if(!parsedPayload.success) {
@@ -56,7 +60,8 @@ const updateTodo = async (req,res)=> {
     const updateTodoDatabase = await todoModel.findByIdAndUpdate(
         id , 
         {
-            isCompleted : true 
+            title : title , 
+            description : description
        } ,
        {new : true}
     )
