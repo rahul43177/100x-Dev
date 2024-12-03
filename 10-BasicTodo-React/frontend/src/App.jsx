@@ -25,7 +25,7 @@ export default function App() {
   return (
     <div>
       Hi There! This is coming from App.jsx
-      <CreateTodo />
+      <CreateTodo todo = {todos}/>
       <Todos todos = {todos} />
     </div>
   );
