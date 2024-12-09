@@ -1,38 +1,47 @@
-function App() {
-    return <div>
-        <WrapperComponent>
-            <div>
-                Hi There
-            </div>
-            <WrapperComponent>
-                <div>
-                    rahul mishra
-                    <WrapperComponent>
-                        <div>Div inside a div insdie a div</div>
-                    </WrapperComponent>
-                </div>
-            </WrapperComponent>
-        </WrapperComponent>
-        <WrapperComponent>
-            <button>Add </button>
-        </WrapperComponent>
-    </div>
+
+
+
+export default function App() {
+    return (
+    <>
+        <Wrapper>
+            <h1>Hello World!</h1>
+            <p>This is a paragraph</p>
+            <WrapperOne>
+                This is wrapper inside wrapper
+            </WrapperOne>
+        </Wrapper>
+        <WrapperOne>
+            <h1>Hello World!</h1>
+            <p>This is a paragraph</p>
+        </WrapperOne>
+    </>
+
+    )
 }
 
+const WrapperOne = (props) => {
+    return (
+        <div style={{
+            display : "flex" , 
+            border : "2px solid green" , 
+            padding : "10px" , 
+            margin : 10
+        }}>
+            {props.children}
+        </div>
+    )
+}
 
-
-function WrapperComponent({children}) {
-    return <div 
-        style = {{
-            padding : 10 , 
+export const Wrapper = (props) => {
+    return (
+        <div style={{
             border : "2px solid black" , 
-            borderRadius : 50 , 
-            margin : 50 
-        }}
-
-    >
-        {children}
-    </div>
-
+            padding : 10 , 
+            margin : 10
+        }}>
+            {props.children}
+        </div>
+    )
 }
-export default App;
+
