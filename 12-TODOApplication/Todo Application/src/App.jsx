@@ -1,68 +1,43 @@
-import {useState} from 'react'
-/**
- * todo application 
- * todo 
- * {
- *  todos : [{
- *  title : 'todo1',
- *  description : 'todo1 description'
- *  completed : true/false
- *  }]
- * }
- */
-function App() {
+import { useState } from "react";
 
-  const [todos , setTodos] = useState([
-  {
-    title : 'Go to gym' , 
-    descrissption : 'Go to gym from 7-9' , 
-    completed : false 
-  } ,
-  {
-    title : 'Study DSA ' , 
-    description : 'Study DSA from 10-12' , 
-    completed : true
-  } ,
-  {
-    title : 'Study C++ ' , 
-    description : 'Study C++ from 10-12' , 
-    completed : false
-  } , 
-  {
-    title : 'Study React Js ' , 
-    description : 'Study React Js from 10-12' , 
-    completed : false
-  }
-])
-
-function addTodo() {
-  setTodos([...todos , {
-    title :  "GOA JAO" , 
-    description : "GOA ME MAJE HI MAJE" , 
-    completed : true 
-  }])
+export default function App() {
+  const [todos, setTodos] = useState([
+    {
+      id: 1,
+      title: "Learn React",
+      description: "Learn React from scratch!",
+    },
+    {
+      id: 2,
+      title: "Learn Nodejs",
+      description: "Learn Nodejs from scratch!",
+    },
+    {
+      id: 3,
+      title: "Learn MongoDB",
+      description: "Learn MongoDB from scratch!",
+    },
+  ]);
+  return (
+    <>
+      {todos.map((singleTodo) => {
+        return (
+          <Todos
+            key={singleTodo.id}
+            title={singleTodo.title}
+            description={singleTodo.description}
+          />
+        );
+      })}
+    </>
+  );
 }
 
-
-return (
-  <div>
-    <button onClick={addTodo}>Add a random todo</button>
-    {todos.map((todo)=> {
-      return <Todo title = {todo.title} description = {todo.description}/>
-    })}
-  </div>
-)
-}
-
-function Todo(props) {
+const Todos = ({ title, description }) => {
   return (
     <div>
-      <h1>{props.title}</h1>
-      <h2>{props.description}</h2>
+      <h1>{title}</h1>
+      <p>{description}</p>
     </div>
-  )
-}
-
-
-
-export default App
+  );
+};
