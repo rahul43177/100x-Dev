@@ -72,10 +72,28 @@ const updateTodo = async (req,res)=> {
         data : updateTodoDatabase
     })
 }
+const markAsCompleted = async (req,res) => {
+    const {id , isCompleted} = req.body
 
+    const markAsCompletedEdit = await todoModel.findByIdAndUpdate(
+        id , 
+        {
+            isCompleted : !isCompleted
+        } , 
+        {new : true}
+    )
+    const uncompleted = "Uncompleted"
+    const completed = "Completed"
+    return res.status(200).json({
+        status : true , 
+        message : `Todo have been marked as ${isCompleted ? uncompleted : completed}`
+    })
+
+}
 
 module.exports = {
     getAllTodos , 
     createTodo ,  
-    updateTodo
+    updateTodo ,
+    markAsCompleted
 }

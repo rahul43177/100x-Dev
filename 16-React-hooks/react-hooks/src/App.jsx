@@ -1,24 +1,30 @@
-import { useState, useEffect } from "react";
+import {useState , memo} from 'react'
 
-//this is custom hook called - useTodos
-function useTodos() {
-  const [todos, setTodos] = useState([]);
-  useEffect(() => {
-    axios.get("").then((res) => {
-      setTodos(res.data.todos);
-    });
-  }, []);
-  return todos;
+export default function App() {
+    const [title , setTitle] = useState("MY name is Rahul Mishra")
+    
+    function updateTitle(){
+        setTitle("My name is " + Math.random());
+    }
+
+    return (
+        <div>
+            <button onClick={updateTitle}>Update the title</button>
+            <Header title = {title}/>
+            <Header title = "Static title" />
+            <Header title = "Static title 2" />
+            <Header title = "Static title 3" />
+            <Header title = "Static title 4" />
+            <Header title = "Static title 5" />
+            <Header title = "Static title 6" />
+            <Header title = "Static title 7" />
+        </div>
+    )
 }
 
-function App() {
-  const todos = useTodos();
+const Header = memo(function Header({title}) { // memo is used to prevent re-rendering of the component when the state is not changed
+    return <div>
+        {title}
+    </div>
+})
 
-  return (
-    <ul>
-      {todos.map((todo) => (
-        <li key={todo.id}>{todo.title}</li>
-      ))}
-    </ul>
-  );
-}
