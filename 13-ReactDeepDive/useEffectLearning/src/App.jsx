@@ -1,36 +1,51 @@
-import {useState , useEffect} from 'react'
+// https://dummy-json.mock.beeceptor.com/todos
+import axios from 'axios'
+import {useEffect , useState} from 'react'
 
-function App() {
-  
+
+export default function App() {
   const [todos , setTodos] = useState([])
+  //fetch the todos from the url above
+  
+  const fetchTodos = async () => {
+    try { 
+      const response = await axios.get("https://dummy-json.mock.beeceptor.com/todos")
+      setTodos(response.data)
+    } catch(e) {
+      console.log("error" , e)
+    }
+  }
+ 
 
-  useEffect(()=> {
-    setInterval(()=>{
-      fetch('https://sum-server.100xdevs.com/todos')
-      .then(async(res)=>{
-        const json = await res.json()
-        setTodos = json.todos
-      })
-    },1000)
-  },[])
+  useEffect(() => {
+    setInterval(() => {
+      fetchTodos()
+    }, 2000)
+  } ,[])
+ // console.log("Todo outside" , todos)
 
   return (
+    <>
+      <Todos todos = {todos}/>
+    </>
+  )
+}
+
+
+const Todos = ({todos}) => {
+  return (
     <div>
-      {todos.map((todo)=>{
-        return <Todos key = {todo.id} title = {todo.title} description={todo.description}/>
+      {todos.map((todo) => {
+        return (
+          <div key = {todo.id}>
+            <h1>
+              {todo.title}
+            </h1> 
+            <button>{todo.copleted ? "DONE" :"NOT DONE"}</button>
+          </div>
+        )
       })}
-    </div>
-  )
 
-}
-
-function Todos({title , description}){
-  return(
-    <div>
-      <h1>{title}</h1>
-      <h5>{description}</h5>
     </div>
   )
 }
-
-export default App
