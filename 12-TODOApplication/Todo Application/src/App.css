@@ -1,0 +1,110 @@
+.love-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    padding: 20px;
+}
+
+.message-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.love-title {
+    color: #ff4b6e;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.love-question {
+    color: #ff758c;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.love-message {
+    color: #ff8fa3;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+}
+
+.love-btn {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.yes-btn {
+    background: #ff4b6e;
+    color: white;
+}
+
+.no-btn {
+    background: #ffb3c1;
+    color: white;
+}
+
+.love-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 75, 110, 0.4);
+}
+
+.floating-hearts {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+}
+
+.floating-hearts span {
+    font-size: 24px;
+    position: absolute;
+    animation: float 3s infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.floating-hearts span:nth-child(3) {
+    left: 80%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Make the confetti more visible */
+.confetti {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ff4b6e, #ff758c);
+}
