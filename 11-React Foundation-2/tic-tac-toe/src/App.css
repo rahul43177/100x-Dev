@@ -1,0 +1,33 @@
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 34px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 34px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .square:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .square.x {
+    color: #ff0000;
+  }
+  
+  .square.o {
+    color: #0000ff;
+  }
+  
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
