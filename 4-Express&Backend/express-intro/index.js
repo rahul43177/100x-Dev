@@ -33,6 +33,11 @@ app.post('/login' , (req,res)=> {
     return res.status(401).json({message : "login failed"})
 })
 
+
+app.post("/redirect" , async (req,res)=> {
+    res.redirect("http://www.google.com")
+    .then((response) => response.data)
+})
 app.listen(port , ()=> {
     console.log(`The server is running on port ${port}`);
 })
