@@ -1,51 +1,49 @@
-// https://dummy-json.mock.beeceptor.com/todos
+//https://jsonplaceholder.typicode.com/todos
+
+import {useState,useEffect} from 'react'
 import axios from 'axios'
-import {useEffect , useState} from 'react'
-
-
 export default function App() {
-  const [todos , setTodos] = useState([])
-  //fetch the todos from the url above
-  
-  const fetchTodos = async () => {
-    try { 
-      const response = await axios.get("https://dummy-json.mock.beeceptor.com/todos")
-      setTodos(response.data)
-    } catch(e) {
-      console.log("error" , e)
-    }
-  }
- 
-
-  useEffect(() => {
-    setInterval(() => {
-      fetchTodos()
-    }, 2000)
-  } ,[])
- // console.log("Todo outside" , todos)
-
+  const [selectedId , setSelectedId] = useState(1);
   return (
     <>
-      <Todos todos = {todos}/>
+    <div>
+      <button
+        onClick = {()=> setSelectedId(1)}
+      >1</button>
+      <button
+        onClick={() => setSelectedId(2)}
+      >2</button>
+      <button
+        onClick={() => setSelectedId(3)}
+      >3</button>
+      <button
+        onClick={() => setSelectedId(4)}
+      >4</button>
+    </div>
+      <TodoComponent id = {selectedId}/>
     </>
   )
 }
 
-
-const Todos = ({todos}) => {
-  return (
+const TodoComponent = ({id}) => {
+  console.log("The id is ->",id)
+  const [todo , setTodo] = useState([]);
+  useEffect(() => {
+    axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then((response) => {
+      console.log("response" , response.data)
+      setTodo(response.data)
+    })
+  },[id])
+  return (    
     <div>
-      {todos.map((todo) => {
-        return (
-          <div key = {todo.id}>
-            <h1>
-              {todo.title}
-            </h1> 
-            <button>{todo.copleted ? "DONE" :"NOT DONE"}</button>
-          </div>
-        )
-      })}
-
+      <p>The id - {id}</p>
+      <h4> {todo.title} </h4>
+      <h6
+        style = {{
+          color : todo.completed ? "green" : "red"
+        }}
+      > {todo.completed ? "Ye kaam done hai" : "Ye kaam done nahi hai"} </h6>
     </div>
   )
 }
