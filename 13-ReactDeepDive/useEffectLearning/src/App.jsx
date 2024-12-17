@@ -1,31 +1,61 @@
-import {useState} from 'react'
+import { useState } from 'react'
+import './App.css'
 
-export default function App() {
-    const [count , setCount] = useState(0);
-    const [text , setText] = useState(0)
-    const [sum , setSum] = useState(0);
-    const findSum = () => {
-        const array = text.split(",")
-        const sumSum = array.reduce((acc , curr) => {
-            return (Number(acc) + Number(curr))
-        })
-        setSum(sumSum);
+function App() {
+  const [todos, setTodos] = useState([])
+  const [inputValue, setInputValue] = useState('')
+
+  const handleAddTodo = () => {
+    if (inputValue.trim() !== '') {
+      setTodos([...todos, {
+        id: Date.now(),
+        text: inputValue,
+        completed: false
+      }])
+      setInputValue('')
     }
-    return (
-        <>
-            <input 
-                type = "text" 
-                placeholder = "Enter the numbers with comma" 
-                value = {text}
-                onChange = {(e) => setText(e.target.value)}
-                onClick = {findSum}
-            /> 
-            <p>Sum is : {sum}</p>
-            <button
-                onClick = {() => setCount(count+1)}
-            >Counter ({count})</button>
+  }
 
-        </>
-    )
-    
+  const handleToggleTodo = (id) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ))
+  }
+
+  const handleDeleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
+
+  return (
+    <div className="app-container">
+      <h1 className="title">Todo List</h1>
+      <div className="input-container">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Add a new todo"
+          onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
+          className="input-field"
+        />
+        <button onClick={handleAddTodo} className="add-todo-btn">Add Todo</button>
+      </div>
+      <ul className="todo-list">
+        {todos.map(todo => (
+          <li key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+            <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => handleToggleTodo(todo.id)}
+              className="checkbox"
+            />
+            <span className="todo-text">{todo.text}</span>
+            <button onClick={() => handleDeleteTodo(todo.id)} className="delete-btn">Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
 }
+
+export default App
