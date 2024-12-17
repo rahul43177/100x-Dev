@@ -1,61 +1,67 @@
-import { useState } from 'react'
-import './App.css'
+import {useState} from 'react'
+
 
 function App() {
-  const [todos, setTodos] = useState([])
-  const [inputValue, setInputValue] = useState('')
-
-  const handleAddTodo = () => {
-    if (inputValue.trim() !== '') {
-      setTodos([...todos, {
-        id: Date.now(),
-        text: inputValue,
-        completed: false
-      }])
-      setInputValue('')
-    }
-  }
-
-  const handleToggleTodo = (id) => {
-    setTodos(todos.map(todo => 
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ))
-  }
-
-  const handleDeleteTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id))
-  }
-
-  return (
-    <div className="app-container">
-      <h1 className="title">Todo List</h1>
-      <div className="input-container">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Add a new todo"
-          onKeyPress={(e) => e.key === 'Enter' && handleAddTodo()}
-          className="input-field"
-        />
-        <button onClick={handleAddTodo} className="add-todo-btn">Add Todo</button>
-      </div>
-      <ul className="todo-list">
-        {todos.map(todo => (
-          <li key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => handleToggleTodo(todo.id)}
-              className="checkbox"
-            />
-            <span className="todo-text">{todo.text}</span>
-            <button onClick={() => handleDeleteTodo(todo.id)} className="delete-btn">Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
+    return (
+        <>
+            <div
+                style = {{
+                    display : "flex" , 
+                    // flexDirection : "row"
+                }}
+            >
+                <button
+                    style = {{
+                        padding : 10 , 
+                        margin : 10 , 
+                        border : "2px solid black" ,
+                        borderRadius : "50%" ,
+                        fontFamily : "JetBrains Mono" , 
+                        textDecoration : "underline"
+                    }}
+                >hi There</button>
+                <h3
+                    style = {{
+                        padding : 10 , 
+                        margin : 10 , 
+                        border : "2px solid green" , 
+                        borderRadius : "50px"
+                    }}
+                >Bye there</h3>
+                <a 
+                    href="https://www.google.com" 
+                    target = "_blank"
+                    style = {{
+                        textDecoration : "none" , 
+                        color : "pink" , 
+                        backgroundColor : "black" , 
+                        height : 10 , 
+                        fontFamily : "Gill Sans" , 
+                        padding : 10 , 
+                        margin : 10  ,
+                        margin : "auto" , 
+                        alignContent : "center" , 
+                        
+                    }}
+                >
+                    Click here to go to google
+                </a>
+                <a 
+                    href="https://www.instagram.com" 
+                    target = "_blank" 
+                    style = {{
+                        textDecoration : "none" , 
+                        color : "pink" , 
+                        backgroundColor : "black" , 
+                        height : 10 , 
+                        fontFamily : "Gill Sans"
+                    }}
+                >
+                    Click here to go to google
+                </a>
+            </div>
+        </>
+    )
 }
 
-export default App
+export default App;
