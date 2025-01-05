@@ -15,7 +15,7 @@ export default function App() {
           {/* Feature Card 1 */}
           <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300">
             <div className="text-sky-400 text-2xl mb-4">🎨</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Beautiful Design</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">Hello world!</h3>
             <p className="text-gray-400">Craft stunning interfaces with ease using Tailwind's utility classes</p>
           </div>
 
