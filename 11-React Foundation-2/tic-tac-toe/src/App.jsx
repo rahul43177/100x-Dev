@@ -16,11 +16,11 @@ export default function Board() {
          <Sqaure value = "6"/>
         </div>
 
-        <div className="board-row">
+        <h1 className="board-row">
          <Sqaure value="7"/>
          <Sqaure value="8"/>
          <Sqaure value="9"/>
-        </div>
+        </h1>
     </>
   )
 }
