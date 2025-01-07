@@ -17,7 +17,8 @@ export default function LearningUseCallBack() {
     }, 3*1000)
     return (
         <div>
-            <p>
+            <p> 
+                
                 {console.log("Greet" , greet)}
                 {greet}
             </p>
