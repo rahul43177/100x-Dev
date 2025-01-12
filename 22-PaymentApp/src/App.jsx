@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { RevenueCard } from "./components/RevenueCard";
 function App() {
 
@@ -9,3 +10,5 @@ function App() {
 }
 
 export default App;
+=======
+>>>>>>> ca8a32dceaa90417b7579315ac54bf7be45a4dc4

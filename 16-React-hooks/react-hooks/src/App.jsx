@@ -1,30 +1,34 @@
-import {useState , memo} from 'react'
+import {useState , useMemo} from 'react'
+import LearningUseCallBack from './hooks/useCallback'
 
 export default function App() {
-    const [title , setTitle] = useState("MY name is Rahul Mishra")
-    
-    function updateTitle(){
-        setTitle("My name is " + Math.random());
-    }
+    const [counter , setCounter ] = useState(0)
+    const [inputValue , setInputValue ] = useState(1)
+
+    let count = useMemo(() => {
+        let finalCount = 0;
+        for(let i = 0;i<=inputValue;i++) {
+            finalCount += i;
+        }
+        return finalCount ;
+    }, [inputValue])
 
     return (
         <div>
-            <button onClick={updateTitle}>Update the title</button>
-            <Header title = {title}/>
-            <Header title = "Static title" />
-            <Header title = "Static title 2" />
-            <Header title = "Static title 3" />
-            <Header title = "Static title 4" />
-            <Header title = "Static title 5" />
-            <Header title = "Static title 6" />
-            <Header title = "Static title 7" />
-        </div>
+            <LearningUseCallBack/>
+            <input 
+                onChange = {(e) => setInputValue(e.target.value)}
+                type="text" 
+                placeholder='Please enter the number'
+            />
+            <br />
+            <p>The sum - {count}</p>
+            <br />
+            <button
+                onClick={() => setCounter(counter+1)}
+            >
+                Click me to update the counter - {counter}
+            </button>
+        </div>        
     )
 }
-
-const Header = memo(function Header({title}) { // memo is used to prevent re-rendering of the component when the state is not changed
-    return <div>
-        {title}
-    </div>
-})
-
