@@ -1,25 +1,27 @@
-import {memo , useCallback , useState} from 'react'
+import {useState , useEffect} from 'react'
+import axios from 'axios'
 
-export default function App() {
-    const [count , setCount] = useState(0)
+
+
+function useTodos() {
+    const [todos , setTodos] = useState([])
     
-    const inputFunction = useCallback(() => {
-        console.log("Hi There!")
-    })
-        return (
-        <div>
-            <ButtonComponent inputFunction = {inputFunction}/>
-            <button 
-                onClick={() => setCount(count+1)}
-            >Click me {count}</button>
-        </div>
+    useEffect(() => {
+        axios.get("https://dummyjson.com/todos")
+        .then((response)=> {
+            console.log("Response" , response.data.todos)
+            setTodos(response.data.todos)
+        })
+    }, [])
+}
+
+
+export default function  App() {
+    // const todos =  useTodos();
+    console.log("Todos in App" , todos)
+    return (
+       {todos}
     )
 }
 
-const ButtonComponent = memo((inputFunction) => {
-    console.log("Child render!")
 
-    return <div>
-        <button>Button Clicked</button>
-    </div>
-})
