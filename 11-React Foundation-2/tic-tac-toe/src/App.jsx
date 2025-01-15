@@ -3,7 +3,7 @@ import './App.css'
 
 export default function Board() {
   return (
-    <>
+   <>
         <div className="board-row">
          <Sqaure value = "1"/>
          <Sqaure value = "2"/>
@@ -11,6 +11,7 @@ export default function Board() {
         </div>
 
         <div className="board-row">
+        
          <Sqaure value = "4"/>
          <Sqaure value = "5"/>
          <Sqaure value = "6"/>
@@ -21,7 +22,7 @@ export default function Board() {
          <Sqaure value="8"/>
          <Sqaure value="9"/>
         </h1>
-    </>
+   </>
   )
 }
 
