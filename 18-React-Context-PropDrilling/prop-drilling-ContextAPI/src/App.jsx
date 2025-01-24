@@ -1,18 +1,15 @@
-import {useState} from 'react'
+import {BrowserRouter , Routes , Route, useNavigate} from 'react-router-dom'
+import Dashboard from './components/Dashboard'
+import LandingPage from './components/Landing'
 
-function App() {
-  const [count , setCount] = useState(0)
+export default function App() {
+    return (
 
-  return (
-    <div>
-    <Count count = {count}/>
-    <Buttons count = {count}  setCount = {setCount}/>
-    </div>
-  )
-} 
+    )
+}
 
-function Count({count} ) {
-  return <div>
-     
-  </div>
+
+function Appbar() {
+    const navigate = useNavigate()
+    
 }

@@ -1,61 +1,38 @@
-import {useContext, useState} from 'react'
-import { CountContext } from './context'
-function App() {
-  const [count , setCount] = useState(0)
-  //wrap anyone that wants to use the teleported values inside a provider
+import {BrowserRouter , Routes , Route, useNavigate} from 'react-router-dom';
+import {lazy  , Suspense} from 'react'
+//import Dashboard from './components/Dashboard'
+//import Landing from './components/Landing'
+const Dashboard = lazy(() => import("./components/Dashboard"))
+const Landing = lazy(() => import("./components/Landing"));
+export default function App() {
   return (
     <div>
-      <CountContext.Provider value = {count}> 
-        <Count count = {count} setCount = {setCount} />
-      </CountContext.Provider>
-
+      <h3
+        style = {{
+            padding : 10 , 
+            margin : 10 , 
+            color : "blue" , 
+            width : "fit-content" ,
+            border : "2px solid black"         
+        }}
+      >This is the constant header</h3>
+      <BrowserRouter>
+      <Appbar/>
+        <Routes>
+          <Route path = "/" element = {<Landing/>}/>
+          <Route path = "/dashboard" element = {<Dashboard/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }
-function Count() {
-  return <div>
-    {count}
-  </div>
+
+const Appbar = () => {
+  const navigate = useNavigate();
+  return (
+    <div>
+        <button onClick={() => navigate("/")}>Landing</button>
+        <button onClick={() => navigate("/dashboard")}>Dashboard</button>
+    </div>
+  )
 }
-
-function Buttons() {
-  return <div>
-    <button onClick={()=> {
-
-    }} >
-      Increase
-    </button>
-    <button onClick = {()=> {
-
-    }}>
-      Decrease
-    </button>
-  </div>
-} 
-
-function Count({count , setCount}) {
-  return <div>
-    <CountRenderer count = {count}/>
-    <Buttons setCount = {setCount} />
-  </div>
-}
-function CountRenderer() {
-  const count = useContext(CountContext);
-  return <div>
-    {count}
-  </div>
-}
-//reducer or useReducer
-
-function Buttons({setCount}) {
-  const count = useContext(CountContext);
-  return <div>
-    <button onClick={()=> {
-      setCount(count + 1)
-    }}>Increase</button>
-    <button onClick={()=> setCount(count- 1)} >Reduce</button>
-  </div>
-}
-
-
-export default App
