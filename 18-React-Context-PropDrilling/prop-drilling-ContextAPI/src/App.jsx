@@ -4,7 +4,9 @@ import LandingPage from './components/Landing'
 
 export default function App() {
     return (
-
+        <div>
+            Hi there!! Learning prop <span>drilling</span>
+        </div>
     )
 }
 
