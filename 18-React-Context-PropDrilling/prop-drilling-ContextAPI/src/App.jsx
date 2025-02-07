@@ -1,17 +1,40 @@
-import {BrowserRouter , Routes , Route, useNavigate} from 'react-router-dom'
-import Dashboard from './components/Dashboard'
-import LandingPage from './components/Landing'
-
-export default function App() {
-    return (
-        <div>
-            Hi there!! Learning prop <span>drilling</span>
-        </div>
-    )
+import { useState } from 'react';
+import Dashboard from './components/Dashboard';
+function Grandchild({ username }) {
+  return (
+    <div>
+      Grandchild Component - Username: {username}
+    </div>
+  );
 }
 
+function Child({ username }) {
+  return (
+    <div>
+      <h3>Child Component</h3>
+      <Grandchild username={username} />
+    </div>
+  );
+}
 
-function Appbar() {
-    const navigate = useNavigate()
-    
+function Parent({ username }) {
+  return (
+    <div>
+      <h2>Parent Component</h2>
+      <Child username={username} />
+    </div>
+  );
+}
+
+export default function App() {
+  const [username] = useState('JohnDoe');
+  
+  return (
+    <div>
+
+      <h1>Prop Drilling Example</h1>
+      <Parent username={username} />
+      {/* <Dashboard/> */}
+    </div>
+  );
 }
