@@ -2,25 +2,43 @@ import { useState  } from "react";
 
 export default function App() {
     const todos = [
-        {
-            id : 1 , 
-            task : "Run" , 
-            description : "Go for 10k run",
-            isCompleted : true
-        } , 
-        {
-            id : 2, 
-            task : "Code" , 
-            description : "Code for 2 hours - Learn React",
-            isCompleted : false
-        } , 
-        {
-            id : 3 , 
-            task : "Family" , 
-            description : "Spend time with family",
-            isCompleted : true
-        }
-    ]
+    {
+        id: 1,
+        task: "Run",
+        description: "Go for 10k run",
+        isCompleted: true
+    },
+    {
+        id: 2,
+        task: "Code",
+        description: "Code for 2 hours - Learn React",
+        isCompleted: false
+    },
+    {
+        id: 3,
+        task: "Family",
+        description: "Spend time with family",
+        isCompleted: true
+    },
+    {
+        id: 4,
+        task: "Grocery Shopping",
+        description: "Buy groceries for the week",
+        isCompleted: false
+    },
+    {
+        id: 5,
+        task: "Read",
+        description: "Read 50 pages of a book",
+        isCompleted: false
+    },
+    {
+        id: 6,
+        task: "Meditate",
+        description: "Meditate for 20 minutes",
+        isCompleted: true
+    }
+]
 
 
 
