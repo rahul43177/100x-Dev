@@ -1,38 +1,39 @@
-import {BrowserRouter , Routes , Route, useNavigate} from 'react-router-dom';
-import {lazy  , Suspense} from 'react'
-//import Dashboard from './components/Dashboard'
-//import Landing from './components/Landing'
+import {BrowserRouter , Routes , Route, useNavigate} from 'react-router-dom'
+import {lazy , Suspense} from 'react'
 const Dashboard = lazy(() => import("./components/Dashboard"))
-const Landing = lazy(() => import("./components/Landing"));
+const Landing = lazy(() => import("./components/Landing"))
+
 export default function App() {
   return (
     <div>
-      <h3
+      <h4 
         style = {{
-            padding : 10 , 
-            margin : 10 , 
-            color : "blue" , 
-            width : "fit-content" ,
-            border : "2px solid black"         
+          color : "red" , 
+          border : "2px solid black" , 
+          width : "fit-content" ,
+          margin : 10 , 
+          padding : 10 
         }}
-      >This is the constant header</h3>
+      >This is the constant heading</h4>
       <BrowserRouter>
       <Appbar/>
         <Routes>
-          <Route path = "/" element = {<Landing/>}/>
-          <Route path = "/dashboard" element = {<Dashboard/>}/>
+          <Route path = "/" element = {<Suspense fallback ={"...Loading.."}> <Landing/> </Suspense>}/>
+          <Route path = "/dashboard" element = {<Suspense fallback={"...loading..."}> <Dashboard/> </Suspense>}/>
         </Routes>
       </BrowserRouter>
     </div>
   )
 }
 
-const Appbar = () => {
+function Appbar() {
   const navigate = useNavigate();
   return (
     <div>
-        <button onClick={() => navigate("/")}>Landing</button>
-        <button onClick={() => navigate("/dashboard")}>Dashboard</button>
+      <button
+        onClick={() => navigate("/")}
+      >Landing</button>
+      <button onClick = {() => navigate("/dashboard")}>Dashboard</button>
     </div>
   )
 }
