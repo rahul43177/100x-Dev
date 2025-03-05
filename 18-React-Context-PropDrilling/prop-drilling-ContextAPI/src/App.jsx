@@ -27,14 +27,13 @@ function Parent({ username }) {
 }
 
 export default function App() {
-  const [username] = useState('JohnDoe');
-  
-  return (
-    <div>
+    return (
 
-      <h1>Prop Drilling Example</h1>
-      <Parent username={username} />
-      {/* <Dashboard/> */}
-    </div>
-  );
+    )
+}
+
+
+function Appbar() {
+    const navigate = useNavigate()
+    
 }
