@@ -1,4 +1,6 @@
 import { useState } from "react";
+import CountContext from "./context";
+
 
 
 export default function App() {
