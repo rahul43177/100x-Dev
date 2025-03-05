@@ -1,39 +1,36 @@
-import {BrowserRouter , Routes , Route, useNavigate} from 'react-router-dom'
-import {lazy , Suspense} from 'react'
-const Dashboard = lazy(() => import("./components/Dashboard"))
-const Landing = lazy(() => import("./components/Landing"))
+import { useState } from "react";
+
 
 export default function App() {
+  const [count , setCount] = useState(0)
+
   return (
     <div>
-      <h4 
-        style = {{
-          color : "red" , 
-          border : "2px solid black" , 
-          width : "fit-content" ,
-          margin : 10 , 
-          padding : 10 
-        }}
-      >This is the constant heading</h4>
-      <BrowserRouter>
-      <Appbar/>
-        <Routes>
-          <Route path = "/" element = {<Suspense fallback ={"...Loading.."}> <Landing/> </Suspense>}/>
-          <Route path = "/dashboard" element = {<Suspense fallback={"...loading..."}> <Dashboard/> </Suspense>}/>
-        </Routes>
-      </BrowserRouter>
+      
     </div>
   )
 }
 
-function Appbar() {
-  const navigate = useNavigate();
-  return (
-    <div>
-      <button
-        onClick={() => navigate("/")}
-      >Landing</button>
-      <button onClick = {() => navigate("/dashboard")}>Dashboard</button>
-    </div>
-  )
+
+function Count({count , setCount}) {
+  return <div>
+    <button>Increase</button>
+    <button>Decrease</button>
+  </div>
+}
+
+function CountRenderer({count}) {
+  return <div>
+    {count}
+  </div>
+}
+
+function Buttons({count , setCount}) {
+  return <div>``
+    <button onClick={() => {
+      setCount(count+1)
+    }}>
+      
+    </button>
+  </div>
 }
